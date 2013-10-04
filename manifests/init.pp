@@ -22,7 +22,7 @@ define vagrant_plugin (
     }
     /^(\d)\.(\d)\.(\d)$/: {
       exec { "install-${plugin}":
-        command => "vagrant plugin install ${plugin}",
+        command => "vagrant plugin install ${plugin} --plugin-version '${ensure}'",
         unless  => "vagrant plugin list | grep -x ${plugin}",
       }
     }
